@@ -12,7 +12,7 @@ const Navbar = () => {
         {/* search */}
         <SearchMenu />
         {/* Darkmode & profile */}
-        <div className="flex flex-col  gap-4 justify-between sm:flex-row sm:items-center">
+        <div className="flex gap-4 sm:items-center">
           <DarkMode />
           <DropdownList />
         </div>

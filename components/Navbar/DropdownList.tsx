@@ -12,12 +12,7 @@ import UserIcon from "./UserIcon";
 import Link from "next/link";
 import { links } from "@/utils/links";
 import SignOutLink from "./SignOutLink";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 
 const DropdownList = () => {
   return (
@@ -49,12 +44,12 @@ const DropdownList = () => {
           <SignedOut>
             {/* sign up btn */}
             <DropdownMenuItem>
-              <SignUpButton mode="modal" />
+              <SignUpButton mode="modal">Register</SignUpButton>
             </DropdownMenuItem>
 
             {/* sign in btn */}
             <DropdownMenuItem>
-              <SignInButton  />
+              <SignInButton mode="modal">Login</SignInButton>
             </DropdownMenuItem>
           </SignedOut>
         </DropdownMenuContent>
