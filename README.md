@@ -1,6 +1,19 @@
+## 🌲 Workshop Camping Next.js 15
+
+### 🎯 credit
+รอยไถ พัฒนา https://www.youtube.com/watch?v=BGvqFlPnMSc
+
+### 💼  General Purpose
+
+A modern camping website built with Next.js 15 — explore campgrounds, plan trips, and enjoy the great outdoors.
+
+**It's just for a personal or learning project**
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## 🌲 Getting Started
 
 First, run the development server:
 
