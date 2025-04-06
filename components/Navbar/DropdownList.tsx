@@ -10,14 +10,14 @@ import {
 import { Button } from "../ui/button";
 import UserIcon from "./UserIcon";
 import Link from "next/link";
-
-type NavLinks = {label:string, href:string}
-
-const links:NavLinks[] = [
-  { label: "Home", href: "/" },
-  { label: "Favorite", href: "/favorite" },
-  { label: "Camp", href: "/camp" },
-];
+import { links } from "@/utils/links";
+import SignOutLink from "./SignOutLink";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+} from "@clerk/nextjs";
 
 const DropdownList = () => {
   return (
@@ -32,11 +32,31 @@ const DropdownList = () => {
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {links.map((el, index) => (
-            <DropdownMenuItem key={index}>
-              <Link href={el.href}>{el.label}</Link>
+
+          {/* if signed in show menu */}
+          <SignedIn>
+            {links.map((el, index) => (
+              <DropdownMenuItem key={index}>
+                <Link href={el.href}>{el.label}</Link>
+              </DropdownMenuItem>
+            ))}
+            <DropdownMenuItem>
+              <SignOutLink />
             </DropdownMenuItem>
-          ))}
+          </SignedIn>
+
+          {/* if logout  */}
+          <SignedOut>
+            {/* sign up btn */}
+            <DropdownMenuItem>
+              <SignUpButton mode="modal" />
+            </DropdownMenuItem>
+
+            {/* sign in btn */}
+            <DropdownMenuItem>
+              <SignInButton  />
+            </DropdownMenuItem>
+          </SignedOut>
         </DropdownMenuContent>
       </DropdownMenu>
     </>
