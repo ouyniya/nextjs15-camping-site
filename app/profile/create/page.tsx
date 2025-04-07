@@ -2,8 +2,14 @@ import { SubmitButton } from "@/components/form/Buttons";
 import FormInput from "@/components/form/FormInput";
 import FormContainer from "@/components/form/FormContainer";
 import { CreateProfileAction } from "@/actions/actions";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-const CreateProfile = () => {
+export default async function CreateProfile() {
+  const user = await currentUser();
+  console.log("user****:", user?.privateMetadata.hasProfile);
+  if (user?.privateMetadata?.hasProfile) redirect("/");
+
   return (
     <section className="flex flex-col gap-3">
       <h1 className="text-xl font-semibold">New User</h1>
@@ -44,5 +50,4 @@ const CreateProfile = () => {
       </div>
     </section>
   );
-};
-export default CreateProfile;
+}

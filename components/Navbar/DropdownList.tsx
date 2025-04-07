@@ -44,12 +44,13 @@ const DropdownList = () => {
           <SignedOut>
             {/* sign up btn */}
             <DropdownMenuItem>
-              <SignUpButton mode="modal">Register</SignUpButton>
+              {/* <SignUpButton mode="modal">Register</SignUpButton> */}
+              <SignUpButton>Register</SignUpButton>
             </DropdownMenuItem>
 
             {/* sign in btn */}
             <DropdownMenuItem>
-              <SignInButton mode="modal">Login</SignInButton>
+              <SignInButton>Login</SignInButton>
             </DropdownMenuItem>
           </SignedOut>
         </DropdownMenuContent>

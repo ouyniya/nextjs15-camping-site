@@ -8,7 +8,7 @@ const Logo = () => {
       <Button size="lg" variant="ghost" asChild>
         <Link href="/">
         <LogoIcon />
-          <h1 className="text-xl">NYS Cmping</h1>
+          <h1 className="text-xl">NYS Camping</h1>
         </Link>
       </Button>
     </>
