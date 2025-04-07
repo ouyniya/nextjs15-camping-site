@@ -5,4 +5,5 @@ export const links: NavLinks[] = [
   { label: "Profile", href: "/profile" },
   { label: "Favorite", href: "/favorite" },
   { label: "Camp", href: "/camp" },
+  { label: "Create Landmark", href: "/camp/create" },
 ];

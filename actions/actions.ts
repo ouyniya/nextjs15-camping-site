@@ -78,3 +78,24 @@ export const CreateProfileAction = async (
 
   redirect("/");
 };
+
+export const CreateLandmarkAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{ message: string }> => {
+
+  try {
+    // get user from clerk
+    const user = await currentUser();
+    if (!user) throw new Error("Please Login!!");
+
+    // validate form data
+    const rawData = Object.fromEntries(formData); // Object.fromEntries(iterable)
+
+    console.log(rawData)
+
+    return { message: "Create landmark successfully." };
+  } catch (error) {
+    return renderError(error);
+  }
+};
