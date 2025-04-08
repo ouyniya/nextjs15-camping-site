@@ -1,7 +1,8 @@
 "use client";
 import { useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
-import { Loader } from "lucide-react";
+import { Heart, Loader } from "lucide-react";
+import { SignInButton } from "@clerk/nextjs";
 
 type btnSize = "default" | "lg" | "sm";
 
@@ -21,5 +22,15 @@ export const SubmitButton = ({ className, size, text }: SubmitBtnProps) => {
         <p>{text}</p>
       )}
     </Button>
+  );
+};
+
+export const SignInCardBtn = () => {
+  return (
+    <SignInButton mode="modal">
+      <Button size='icon' variant="outline">
+        <Heart />
+      </Button>
+    </SignInButton>
   );
 };
