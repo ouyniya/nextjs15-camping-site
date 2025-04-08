@@ -68,15 +68,15 @@ const MapLandmark = ({
     if (mapRef.current) {
       // กรณีที่ mapRef ถูกใช้แล้ว
       const mapInstance = mapRef.current;
-      console.log("Map initialized", mapInstance);
+      // console.log("Map initialized", mapInstance);
     }
   }, []);
 
   // ตรวจสอบว่า Map ถูก mount/unmount กี่ครั้ง
   useEffect(() => {
-    console.log("🗺️ Map mounted");
+    // console.log("🗺️ Map mounted");
     return () => {
-      console.log("🧹 Map unmounted");
+      // console.log("🧹 Map unmounted");
     };
   }, []);
 

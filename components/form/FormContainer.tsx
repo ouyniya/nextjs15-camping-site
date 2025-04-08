@@ -19,7 +19,7 @@ const FormContainer = ({
   className?: string; // className: ใส่คลาสเสริมให้ <form>
 }) => {
   const [state, formAction] = useActionState(action, initialState); // formAction: ฟังก์ชันที่จะผูกกับ <form action={formAction}>
-  console.log("state: ", state); // state: เก็บค่าผลลัพธ์ที่ได้จากการ submit ฟอร์ม
+  // console.log("state: ", state); // state: เก็บค่าผลลัพธ์ที่ได้จากการ submit ฟอร์ม
 
   //ทุกครั้งที่ state เปลี่ยน (เช่นหลัง submit ฟอร์ม), ถ้ามีข้อความใน state.message, ระบบจะแสดง popup แจ้งเตือนด้วย toast() จาก sonner
   useEffect(() => {

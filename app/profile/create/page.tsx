@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 export default async function CreateProfile() {
   const user = await currentUser();
-  console.log("user****:", user?.privateMetadata.hasProfile);
+  // console.log("user****:", user?.privateMetadata.hasProfile);
   if (user?.privateMetadata?.hasProfile) redirect("/");
 
   return (

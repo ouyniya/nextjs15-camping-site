@@ -28,9 +28,24 @@ export const SubmitButton = ({ className, size, text }: SubmitBtnProps) => {
 export const SignInCardBtn = () => {
   return (
     <SignInButton mode="modal">
-      <Button size='icon' variant="outline">
+      <Button size="icon" variant="outline">
         <Heart />
       </Button>
     </SignInButton>
+  );
+};
+
+export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" size="icon" variant="outline">
+      {pending ? (
+        <Loader className="animate-spin" />
+      ) : isFavorite ? (
+        <Heart fill="black" />
+      ) : (
+        <Heart />
+      )}
+    </Button>
   );
 };
