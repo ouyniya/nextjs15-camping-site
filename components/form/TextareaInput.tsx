@@ -1,5 +1,5 @@
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@radix-ui/react-dropdown-menu";
+import { Label } from "@/components/ui/label";
 
 const TextareaInput = ({
   name,
@@ -11,16 +11,15 @@ const TextareaInput = ({
   defaultValue: string;
 }) => {
   return (
-    <div className="w-full">
-      <Label htmlFor={name}>
-        {labelText || name}
-        <Textarea 
+    <div className="flex flex-col gap-2 w-full">
+      <Label htmlFor={name}>{labelText || name}</Label>
+      <Textarea
         id={name}
         name={name}
         defaultValue={defaultValue}
         required
-        placeholder="Type your message here." />
-      </Label>
+        placeholder="Type your message here."
+      />
     </div>
   );
 };

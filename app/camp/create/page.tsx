@@ -5,6 +5,7 @@ import { CreateLandmarkAction } from "@/actions/actions";
 import CategoryInput from "@/components/form/CategoryInput";
 import TextareaInput from "@/components/form/TextareaInput";
 import ProvinceInput from "@/components/form/ProvinceInput";
+import MapClientWrapper from "./MapClientWrapper";
 
 export default async function CreateLandmark() {
   return (
@@ -31,7 +32,11 @@ export default async function CreateLandmark() {
 
             <div className="flex gap-5 w-full">
               {/* Textarea */}
-              <TextareaInput name="description" />
+              <TextareaInput
+                name="description"
+                labelText="Description"
+                defaultValue=""
+              />
             </div>
 
             <div className="flex gap-5 w-full">
@@ -46,6 +51,8 @@ export default async function CreateLandmark() {
               <ProvinceInput />
             </div>
 
+            <MapClientWrapper />
+
             <SubmitButton
               text="Create Landmark"
               size="lg"
@@ -54,6 +61,7 @@ export default async function CreateLandmark() {
           </div>
         </FormContainer>
       </div>
+
     </section>
   );
 }
