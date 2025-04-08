@@ -1,0 +1,14 @@
+import { fetchLandmarks } from "@/actions/actions";
+import LandmarkList from "./LandmarkList";
+import { landmarkCardProps } from "@/utils/types";
+
+const LandmarkContainer = async () => {
+  const landmarks:landmarkCardProps[] = await fetchLandmarks()
+//   console.log(landmarks)
+
+  return <div>
+
+    <LandmarkList landmarks={landmarks} />
+  </div>;
+};
+export default LandmarkContainer;

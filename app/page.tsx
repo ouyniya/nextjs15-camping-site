@@ -1,11 +1,12 @@
-import { Button } from "@/components/ui/button"
+import LandmarkContainer from "@/components/home/LandmarkContainer";
+import { Button } from "@/components/ui/button";
 
 const page = () => {
+  // search
+
   return (
     <>
-      <div>page</div>
-      <h1>Hello</h1>
-      <Button variant='outline' size='sm'>Click me</Button>
+      <LandmarkContainer />
     </>
   );
 };
