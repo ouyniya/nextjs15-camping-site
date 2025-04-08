@@ -3,7 +3,8 @@ import { landmarkCardProps } from "@/utils/types";
 import LandmarkStar from "./LandmarkStar";
 
 const LandmarkCard = ({ landmark }: { landmark: landmarkCardProps }) => {
-  const { id, name, image, province, lat, lng, category } = landmark;
+  const { id, name, description, price, image, province, lat, lng, category } =
+    landmark;
 
   return (
     <article className="group relative">
@@ -21,6 +22,15 @@ const LandmarkCard = ({ landmark }: { landmark: landmarkCardProps }) => {
         <p>
           <LandmarkStar />
         </p>
+      </div>
+
+      <p className="text-sm mt-1 text-muted-foreground">
+        {description.substring(0, 40)}...
+      </p>
+
+      <div className="mt-1 flex items-center justify-between">
+        <span className="font-semibold">THB {price.toLocaleString()}</span>
+        <p className="font-semibold">{province}</p>
       </div>
     </article>
   );
