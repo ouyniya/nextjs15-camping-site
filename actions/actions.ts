@@ -156,13 +156,12 @@ export const fetchFavoriteId = async ({
   return favorite?.id || null;
 };
 
+// favorite button
 export const toggleFavoriteAction = async (prevState: {
   favoriteId: string | null;
   landmarkId: string;
   pathname: string;
 }) => {
-  // console.log(prevState)
-
   const user = await getAuthUser();
 
   const { favoriteId, landmarkId, pathname } = prevState;
@@ -184,12 +183,42 @@ export const toggleFavoriteAction = async (prevState: {
       });
     }
 
-    revalidatePath(pathname)
+    revalidatePath(pathname);
 
     return {
       message: favoriteId ? "Remove favorite success" : "Add favorite success",
     };
   } catch (error) {
-    return renderError(error)
+    return renderError(error);
   }
+};
+
+// favorite's page
+export const fetchFavorite = async () => {
+  const user = await getAuthUser();
+
+  const favorites = await db.favorite.findMany({
+    where: {
+      profileId: user.id,
+    },
+    select: {
+      landmark: {
+        select: {
+          id: true,
+          name: true,
+          description: true,
+          image: true,
+          price: true,
+          province: true,
+          lat: true,
+          lng: true,
+          category: true,
+        },
+      },
+    },
+  });
+
+  //
+
+  return favorites.map((favorite) => favorite.landmark);
 };
