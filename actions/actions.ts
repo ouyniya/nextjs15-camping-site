@@ -128,8 +128,15 @@ export const CreateLandmarkAction = async (
 };
 
 // fetch landmarks data
-export const fetchLandmarks = async () => {
+export const fetchLandmarks = async ({ search = "" }: { search?: string }) => {
   const landmarks = await db.landmark.findMany({
+    where: {
+      OR: [
+        { name: { contains: search, mode: "insensitive" } },
+        { province: { contains: search, mode: "insensitive" } },
+        { description: { contains: search, mode: "insensitive" } },
+      ],
+    },
     orderBy: {
       createdAt: "desc",
     },
