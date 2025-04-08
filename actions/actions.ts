@@ -1,23 +1,29 @@
 "use server";
 
-import { profileSchema, validateWithZod } from "@/utils/schemas";
+import {
+  imageSchema,
+  landmarkSchema,
+  profileSchema,
+  validateWithZod,
+} from "@/utils/schemas";
 import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import db from "@/utils/db";
 import { redirect } from "next/navigation";
+import { uploadFile } from "@/utils/supabase";
 
-// const getAuthUser = async () => {
-//   const user = await currentUser();
+const getAuthUser = async () => {
+  const user = await currentUser();
 
-//   // not log in
-//   if (!user) {
-//     throw new Error("You must login!!");
-//   }
+  // not log in
+  if (!user) {
+    throw new Error("You must login!!");
+  }
 
-//   // not have profile
-//   if (!user.privateMetadata.hasProfile) redirect("/profile/create");
+  // not have profile
+  if (!user.privateMetadata.hasProfile) redirect("/profile/create");
 
-//   return user;
-// };
+  return user;
+};
 
 // send error message
 const renderError = (error: unknown): { message: string } => {
@@ -49,7 +55,6 @@ export const CreateProfileAction = async (
     const validateField = validateWithZod(profileSchema, rawData);
 
     // create data in db
-
     const data = {
       clerkId: user.id,
       email: user.emailAddresses[0].emailAddress,
@@ -83,19 +88,51 @@ export const CreateLandmarkAction = async (
   prevState: any,
   formData: FormData
 ): Promise<{ message: string }> => {
-
   try {
     // get user from clerk
-    const user = await currentUser();
-    if (!user) throw new Error("Please Login!!");
-
-    // validate form data
+    // from now on
+    const user = await getAuthUser();
     const rawData = Object.fromEntries(formData); // Object.fromEntries(iterable)
+    const file = formData.get("image") as File;
+    // console.log(file)
 
-    console.log(rawData)
+    // step 1 validate form data
+    const validatedFile = validateWithZod(imageSchema, { image: file });
+    const validatedField = validateWithZod(landmarkSchema, rawData);
 
-    return { message: "Create landmark successfully." };
+    // step 2 Upload image
+    const fullPath = await uploadFile(validatedFile.image);
+    // console.log(fullPath);
+
+    // step 3 insert into db
+    const data = {
+      ...validatedField,
+      image: fullPath,
+      profileId: user.id,
+    };
+
+    console.log(data);
+
+    await db.landmark.create({
+      data: data,
+    });
+
+    // return { message: "Create landmark successfully." };
   } catch (error) {
     return renderError(error);
   }
+
+  redirect("/");
+};
+
+
+// fetch landmarks data
+export const fetchLandmarks = async () => {
+  const landmarks = await db.landmark.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return landmarks;
 };

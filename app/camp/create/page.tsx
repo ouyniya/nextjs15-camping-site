@@ -6,6 +6,7 @@ import CategoryInput from "@/components/form/CategoryInput";
 import TextareaInput from "@/components/form/TextareaInput";
 import ProvinceInput from "@/components/form/ProvinceInput";
 import MapClientWrapper from "./MapClientWrapper";
+import ImageInput from "@/components/form/ImageInput";
 
 export default async function CreateLandmark() {
   return (
@@ -51,6 +52,10 @@ export default async function CreateLandmark() {
               <ProvinceInput />
             </div>
 
+            {/* image */}
+            <ImageInput />
+
+            {/* Map */}
             <MapClientWrapper />
 
             <SubmitButton
@@ -61,7 +66,6 @@ export default async function CreateLandmark() {
           </div>
         </FormContainer>
       </div>
-
     </section>
   );
 }

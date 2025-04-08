@@ -11,8 +11,8 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css"; // Import Leaflet's default styling
-import { useState } from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 // Path to your custom pin icon located in /public/images
 const iconUrl = "/images/pin.png";
@@ -64,14 +64,30 @@ const MapLandmark = ({
   // State to hold the selected position
   const [position, setPosition] = useState<Latlng | null>(null);
 
-  // Fixes the "Map container is already initialized" error by resetting Leaflet's internal ID
   useEffect(() => {
-    const container = document.getElementById("map");
-    if (container !== null) {
-      // @ts-ignore: Suppress TypeScript warning for custom property
-      container._leaflet_id = null; // force Leaflet to recreate map
+    if (mapRef.current) {
+      // กรณีที่ mapRef ถูกใช้แล้ว
+      const mapInstance = mapRef.current;
+      console.log("Map initialized", mapInstance);
     }
   }, []);
+
+  // ตรวจสอบว่า Map ถูก mount/unmount กี่ครั้ง
+  useEffect(() => {
+    console.log("🗺️ Map mounted");
+    return () => {
+      console.log("🧹 Map unmounted");
+    };
+  }, []);
+
+  // Fixes the "Map container is already initialized" error by resetting Leaflet's internal ID
+  // useLayoutEffect(() => {
+  //   const container = document.getElementById("map");
+  //   if (container && container._leaflet_id) {
+  //     // @ts-ignore
+  //     container._leaflet_id = null; // ❗สำคัญ: ล้าง instance เดิมของ Leaflet
+  //   }
+  // }, []);
 
   return (
     <>
