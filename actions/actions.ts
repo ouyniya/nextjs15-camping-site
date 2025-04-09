@@ -10,7 +10,6 @@ import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import db from "@/utils/db";
 import { redirect } from "next/navigation";
 import { uploadFile } from "@/utils/supabase";
-import { get } from "http";
 import { revalidatePath } from "next/cache";
 
 const getAuthUser = async () => {
@@ -243,7 +242,16 @@ export const fetchFavorite = async () => {
     },
   });
 
-  //
-
   return favorites.map((favorite) => favorite.landmark);
+};
+
+export const fetchLandmarkDetail = async ({ id }: { id: string }) => {
+  return db.landmark.findFirst({
+    where: {
+      id,
+    },
+    include: {
+      profile: true,
+    },
+  });
 };

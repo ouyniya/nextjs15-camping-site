@@ -1,4 +1,4 @@
-import LoadingCard from "@/components/card/LoadingCard";
+import { LoadingCardHero } from "@/components/card/LoadingCard";
 import CategoryList from "@/components/home/CategoryList";
 import LandmarkContainer from "@/components/home/LandmarkContainer";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ const page = async ({
 
   return (
     <section>
-      <Suspense fallback={<LoadingCard />}>
+      <Suspense fallback={<LoadingCardHero />}>
         <LandmarkContainer search={search} category={category} />
       </Suspense>
     </section>

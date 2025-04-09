@@ -1,9 +1,8 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-const LoadingCard = () => {
+export const LoadingCard = () => {
   return (
     <div>
-      <SkeletonCardHero />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
         <SkeletonCard />
         <SkeletonCard />
@@ -18,6 +17,25 @@ const LoadingCard = () => {
   );
 };
 export default LoadingCard;
+
+export const LoadingCardHero = () => {
+  return (
+    <div>
+      <SkeletonCardHero />
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+        <SkeletonCard />
+      </div>
+    </div>
+  );
+};
 
 export const SkeletonCard = () => {
   return (
