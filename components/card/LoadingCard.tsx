@@ -56,3 +56,17 @@ export const SkeletonCardHero = () => {
     </div>
   );
 };
+
+
+export const SkeletonCardLandmark = () => {
+  return (
+    <div>
+      <Skeleton className="w-2/3 md:w-1/3 h-[20px] mb-3" />
+      <Skeleton className="w-2/3 md:w-1/3 h-[65px] mb-3" />
+      <Skeleton className="w-full h-[300px] md:h-[500px] rounded-md mb-3" />
+      <Skeleton className="w-full h-[20px] mb-3" />
+      <Skeleton className="w-full h-[20px] mb-3" />
+      <Skeleton className="w-full h-[20px] mb-3" />
+    </div>
+  );
+};
