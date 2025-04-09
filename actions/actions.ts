@@ -128,9 +128,16 @@ export const CreateLandmarkAction = async (
 };
 
 // fetch landmarks data
-export const fetchLandmarks = async ({ search = "" }: { search?: string }) => {
+export const fetchLandmarks = async ({
+  search = "",
+  category,
+}: {
+  search?: string;
+  category?: string;
+}) => {
   const landmarks = await db.landmark.findMany({
     where: {
+      category,
       OR: [
         { name: { contains: search, mode: "insensitive" } },
         { province: { contains: search, mode: "insensitive" } },
@@ -140,6 +147,17 @@ export const fetchLandmarks = async ({ search = "" }: { search?: string }) => {
     orderBy: {
       createdAt: "desc",
     },
+  });
+
+  return landmarks;
+};
+
+export const fetchLandmarksHero = async () => {
+  const landmarks = await db.landmark.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    take: 5,
   });
 
   return landmarks;
