@@ -35,11 +35,11 @@ const LandmarkCard = ({ landmark }: { landmark: landmarkCardProps }) => {
           <span className="font-semibold">THB {price.toLocaleString()}</span>
           <p className="font-semibold">{province}</p>
         </div>
-
-        <div className="absolute top-2 right-2">
-          <FavoriteToggleBtn landmarkId={id} />
-        </div>
       </Link>
+
+      <div className="absolute top-2 right-2">
+        <FavoriteToggleBtn landmarkId={id} />
+      </div>
     </article>
   );
 };

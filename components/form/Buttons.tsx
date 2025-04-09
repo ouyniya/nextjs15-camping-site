@@ -42,7 +42,7 @@ export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
       {pending ? (
         <Loader className="animate-spin" />
       ) : isFavorite ? (
-        <Heart fill="black" />
+        <Heart fill="crimson" color="crimson" />
       ) : (
         <Heart />
       )}
