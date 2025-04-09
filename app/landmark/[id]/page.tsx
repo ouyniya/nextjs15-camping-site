@@ -1,8 +1,10 @@
 import { fetchLandmarkDetail } from "@/actions/actions";
+import MapClientWrapper from "@/app/camp/create/MapClientWrapper";
 import FavoriteToggleBtn from "@/components/card/FavoriteToggleBtn";
 import BreadcrumbsForLandmark from "@/components/landmark/BreadcrumbsForLandmark";
 import DescriptionLandmark from "@/components/landmark/DescriptionLandmark";
 import ImageContainer from "@/components/landmark/ImageContainer";
+import ShareBtn from "@/components/landmark/ShareBtn";
 import MapLandmark from "@/components/map/MapLandmark";
 import { redirect } from "next/navigation";
 
@@ -22,8 +24,8 @@ const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
       />
       <header className="flex justify-between mt-4 items-center">
         <h1 className="text-4xl capitalize">{landmark.name}</h1>
-        <div className="flex gap-4 items-center">
-          <span>share</span>
+        <div className="flex gap-2 items-center">
+          <ShareBtn landmarkId={landmark.id} name={landmark.name} />
           <FavoriteToggleBtn landmarkId={landmark.id} />
         </div>
       </header>
@@ -34,7 +36,7 @@ const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
       <section>
         <div>
           <DescriptionLandmark description={landmark.description} />
-          <MapLandmark location={{ lat: landmark.lat, lng: landmark.lng }} />
+          <MapClientWrapper location={{ lat: landmark.lat, lng: landmark.lng }} />
         </div>
       </section>
     </section>

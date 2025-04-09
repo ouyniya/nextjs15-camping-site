@@ -8,6 +8,10 @@ const MapLandmark = dynamic(() => import("@/components/map/MapLandmark"), {
   loading: () => <p>Loading map...</p>,
 });
 
-export default function MapClientWrapper() {
-  return <MapLandmark />;
+export default function MapClientWrapper({
+  location,
+}: {
+  location?: { lat: number; lng: number };
+}) {
+  return <MapLandmark location={location} />;
 }

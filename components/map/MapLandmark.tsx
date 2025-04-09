@@ -51,12 +51,12 @@ const MapLandmark = ({
   location?: { lat: number; lng: number };
 }) => {
 
-const iconUrl =
-"https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png";
-const markerIcon = L.icon({
-iconUrl: iconUrl,
-iconSize: [20, 30],
-});
+// const iconUrl =
+// "https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png";
+// const markerIcon = L.icon({
+// iconUrl: iconUrl,
+// iconSize: [20, 30],
+// });
   const defaultLocation: Latlng = [13, 100];
 
   const [position, setPosition] = useState<Latlng | null>(null);
