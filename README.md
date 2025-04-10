@@ -65,6 +65,33 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+### 🔐 Environment Variables
+
+To run this project locally, you need to set up a `.env` file in the root directory with the following variables:
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL='/profile/create'
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL='/profile/create'
+
+DB_PASSWORD=
+
+# Connect to Supabase via connection pooling.
+DATABASE_URL=
+
+# Direct connection to the database. Used for migrations.
+DIRECT_URL=
+
+
+SUPABASE_URL=
+SUPABASE_KEY=
+```
+
+**Make sure to keep your .env file private and never commit it to source control.**
+
+
 ### Learn More
 
 To learn more about Next.js, take a look at the following resources:
