@@ -63,7 +63,8 @@ const MapLandmark = ({
   // console.log(position);
   return (
     <>
-      <h1 className="mt-4 font-semibold">Where are you?</h1>
+      {/* <h1 className="mt-4 font-semibold">Where are you?</h1> */}
+      <h1 className="mt-4 font-semibold">Location</h1>
 
       <input type="hidden" name="lat" value={position ? position[0] : ""} />
 
