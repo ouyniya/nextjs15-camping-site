@@ -1,4 +1,4 @@
-import { AlignLeft, CircleUser } from "lucide-react";
+import { AlignLeft } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,

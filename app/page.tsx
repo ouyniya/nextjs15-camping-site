@@ -1,7 +1,5 @@
 import { LoadingCardHero } from "@/components/card/LoadingCard";
-import CategoryList from "@/components/home/CategoryList";
 import LandmarkContainer from "@/components/home/LandmarkContainer";
-import { Button } from "@/components/ui/button";
 import { Suspense } from "react";
 
 const page = async ({

@@ -9,7 +9,7 @@ type btnSize = "default" | "lg" | "sm";
 type SubmitBtnProps = { className: string; size: btnSize; text: string };
 
 export const SubmitButton = ({ className, size, text }: SubmitBtnProps) => {
-  const { pending, data, method, action } = useFormStatus();
+  const { pending } = useFormStatus();
 
   return (
     <Button disabled={pending} className={className} size={size}>

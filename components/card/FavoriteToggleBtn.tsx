@@ -1,5 +1,3 @@
-import { Heart } from "lucide-react";
-import { Button } from "../ui/button";
 import { auth } from "@clerk/nextjs/server";
 import { SignInCardBtn } from "../form/Buttons";
 import { fetchFavoriteId } from "@/actions/actions";

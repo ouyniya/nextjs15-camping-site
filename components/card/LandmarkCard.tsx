@@ -5,7 +5,7 @@ import FavoriteToggleBtn from "./FavoriteToggleBtn";
 import Link from "next/link";
 
 const LandmarkCard = ({ landmark }: { landmark: landmarkCardProps }) => {
-  const { id, name, description, price, image, province, lat, lng, category } =
+  const { id, name, description, price, image, province} =
     landmark;
 
   return (

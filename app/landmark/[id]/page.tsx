@@ -5,7 +5,6 @@ import BreadcrumbsForLandmark from "@/components/landmark/BreadcrumbsForLandmark
 import DescriptionLandmark from "@/components/landmark/DescriptionLandmark";
 import ImageContainer from "@/components/landmark/ImageContainer";
 import ShareBtn from "@/components/landmark/ShareBtn";
-import MapLandmark from "@/components/map/MapLandmark";
 import { redirect } from "next/navigation";
 
 const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
