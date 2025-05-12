@@ -31,7 +31,7 @@ function Footer() {
             </div>
 
             <div className="lg:mx-auto text-left ">
-              <h4 className="text-lg  font-medium mb-7">NysCamping</h4>
+              <h4 className="text-lg font-medium mb-7">NysCamping</h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
                   <Link href={`/`}>Home</Link>

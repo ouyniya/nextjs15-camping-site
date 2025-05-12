@@ -2,6 +2,7 @@ import { fetchLandmarkFromUserId } from "@/actions/actions";
 import { currentUser } from "@clerk/nextjs/server";
 import { Heart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface User {
   id: string;
@@ -83,42 +84,46 @@ const ProfilePage = async () => {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group">
-                <Image
-                  src={posts ? posts[0]?.image : ""}
-                  alt="Nature"
-                  className="w-full h-full object-cover"
-                  width={500}
-                  height={500}
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-xl font-bold text-white">
-                      {posts ? posts[0].name : null}
-                    </h3>
-                    <p className="text-white">
-                      {posts ? posts[0].description : null}
-                    </p>
+                <Link href={posts ? `/landmark/${posts[0]?.id}` : "/"}>
+                  <Image
+                    src={posts ? posts[0]?.image : ""}
+                    alt="Nature"
+                    className="w-full h-full object-cover"
+                    width={500}
+                    height={500}
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-xl font-bold text-white">
+                        {posts ? posts[0].name : null}
+                      </h3>
+                      <p className="text-white">
+                        {posts ? posts[0].description : null}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               {posts?.splice(1, 8)?.map((item, index) => (
                 <div key={index}>
                   <div className="relative overflow-hidden rounded-2xl shadow-lg group w-full h-full">
-                    <Image
-                      src={item.image}
-                      alt="Nature"
-                      className="w-full h-full object-cover"
-                      width={500}
-                      height={500}
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <h4 className="text-sm font-bold text-white">
-                          {item.name}
-                        </h4>
+                    <Link href={`/landmark/${item?.id}`}>
+                      <Image
+                        src={item.image}
+                        alt="Nature"
+                        className="w-full h-full object-cover"
+                        width={500}
+                        height={500}
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h4 className="text-sm font-bold text-white">
+                            {item.name}
+                          </h4>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               ))}

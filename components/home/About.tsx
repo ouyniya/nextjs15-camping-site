@@ -3,10 +3,10 @@ import { MoveUpIcon } from "lucide-react";
 function About() {
   return (
     <div>
-      <section id="comparison" className="py-10 sm:py-32">
+      <section id="comparison" className="mt-16 py-10 sm:py-32">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl md:text-center">
-            <h2 className="font-display text-3xl tracking-tight  sm:text-4xl">
+            <h2 className="font-display text-3xl tracking-tight font-semibold sm:text-4xl">
               Sharing real travel stories from every corner
             </h2>
             <p className="mt-4 text-lg tracking-tight text-slate-700 dark:text-gray-300">

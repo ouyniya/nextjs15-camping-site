@@ -2,7 +2,6 @@ import { fetchLandmarks, fetchLandmarksHero } from "@/actions/actions";
 import LandmarkList from "./LandmarkList";
 import { landmarkCardProps } from "@/utils/types";
 import Hero from "../hero/Hero";
-// import CategoryList from "./CategoryList";
 import EmptyList from "./EmptyList";
 import SearchMenu from "../Navbar/SearchMenu";
 import Footer from "./Footer";
@@ -10,6 +9,8 @@ import RotatingText from "./Hero";
 import About from "./About";
 import CallToAction from "./CallToAction";
 import More from "./More";
+import WhyUs from "./WhyUs";
+import TrueFocus from "./Focus";
 
 const LandmarkContainer = async () => {
   const landmarks: landmarkCardProps[] = await fetchLandmarks({});
@@ -67,12 +68,27 @@ const LandmarkContainer = async () => {
       </section>
 
       {/* Landmark */}
-      {/* <Hero landmarks={landmarksHero} /> */}
+      <Hero landmarks={landmarksHero} />
+
+      {/* WhyUs /> */}
+      <div className="mt-16 md:mt-32">
+        <div className="mx-auto max-w-3xl md:text-center py-10 pb-5">
+          <h2 className="flex gap-4 justify-center items-center font-display font-semibold text-3xl tracking-tight sm:text-4xl">
+            What You’ll 
+            <TrueFocus sentence="Find Here" manualMode={false} />
+          </h2>
+          <p className="mt-4 text-lg tracking-tight text-slate-700 dark:text-gray-300">
+            We believe every journey has a story, and every traveler has wisdom
+            worth sharing.
+          </p>
+        </div>
+        <WhyUs />
+      </div>
 
       {/* <CategoryList searchParams={searchParams} /> */}
-      <div className="mt-16">
+      <div className="mt-16 md:mt-32">
         <div className="mx-auto max-w-3xl md:text-center py-10 pb-5">
-          <h2 className="font-display text-3xl tracking-tight sm:text-4xl">
+          <h2 className="font-display font-semibold text-3xl tracking-tight sm:text-4xl">
             Latest Stories from Our Community
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700 dark:text-gray-300">
@@ -83,8 +99,8 @@ const LandmarkContainer = async () => {
         {landmarks.length === 0 ? (
           <EmptyList />
         ) : (
-          // <LandmarkList landmarks={finalLandmark} />
-          "test"
+          <LandmarkList landmarks={finalLandmark} />
+          // "test"
         )}
       </div>
 

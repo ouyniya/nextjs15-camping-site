@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { landmarkCardProps } from "@/utils/types";
-import LandmarkStar from "./LandmarkStar";
+// import LandmarkStar from "./LandmarkStar";
 import FavoriteToggleBtn from "./FavoriteToggleBtn";
 import Link from "next/link";
 
@@ -23,7 +23,7 @@ const LandmarkCard = ({ landmark }: { landmark: landmarkCardProps }) => {
         <div className="flex items-center justify-between">
           <h3 className="text-md font-semibold">{name}</h3>
           <p>
-            <LandmarkStar />
+            {/* <LandmarkStar /> */}
           </p>
         </div>
 
