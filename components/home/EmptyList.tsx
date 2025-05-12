@@ -29,7 +29,7 @@ const EmptyList = ({
       <h2 className="text-2xl font-semibold">{heading}</h2>
       <p className="mt-2">{message}</p>
       <div className="flex justify-center gap-2">
-        <Link href="/" passHref>
+        <Link href="/search" passHref>
           <Button
             className="capitalize mt-4 font-bold hover:cursor-pointer hover:translate-0.5 transition-all duration-300 shadow-md"
             disabled={loading} // ปิดการคลิกปุ่มเมื่อสถานะ loading เป็น true

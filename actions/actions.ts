@@ -37,7 +37,7 @@ const renderError = (error: unknown): { message: string } => {
 };
 
 export const CreateProfileAction = async (
-  prevState: any,
+  prevState: unknown,
   formData: FormData
 ) => {
   // validate
@@ -86,7 +86,7 @@ export const CreateProfileAction = async (
 };
 
 export const CreateLandmarkAction = async (
-  prevState: any,
+  prevState: unknown,
   formData: FormData
 ): Promise<{ message: string }> => {
   try {
@@ -129,14 +129,18 @@ export const CreateLandmarkAction = async (
 // fetch landmarks data
 export const fetchLandmarks = async ({
   search = "",
-  category,
+  category = "",
+  skip = 0,
+  take = 8
 }: {
   search?: string;
   category?: string;
+  skip?: number;
+  take?: number;
 }) => {
   const landmarks = await db.landmark.findMany({
     where: {
-      category,
+      category: { contains: category, mode: "insensitive" },
       OR: [
         { name: { contains: search, mode: "insensitive" } },
         { province: { contains: search, mode: "insensitive" } },
@@ -146,6 +150,8 @@ export const fetchLandmarks = async ({
     orderBy: {
       createdAt: "desc",
     },
+    skip,
+    take,
   });
 
   return landmarks;
@@ -168,16 +174,28 @@ export const fetchFavoriteId = async ({
   landmarkId: string;
 }) => {
   const user = await getAuthUser();
-  const favorite = await db.favorite.findFirst({
-    where: {
-      landmarkId: landmarkId,
-      profileId: user.id,
-    },
-    select: {
-      id: true,
-    },
-  });
-  return favorite?.id || null;
+
+  if (!user || !user.id) {
+    console.warn("User not authenticated");
+    return null;
+  }
+
+  try {
+    const favorite = await db.favorite.findFirst({
+      where: {
+        landmarkId,
+        profileId: user.id,
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    return favorite?.id || null;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
 
 // favorite button

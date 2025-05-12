@@ -8,7 +8,16 @@ const FavoriteToggleBtn = async ({ landmarkId }: { landmarkId: string }) => {
   // console.log(userId)
   if (!userId) return <SignInCardBtn />;
 
-  const favoriteId = await fetchFavoriteId({ landmarkId });
+  const getFavoriteId = async (landmarkId: string) => {
+    if (landmarkId) {
+      const favoriteId = await fetchFavoriteId({ landmarkId });
+      return favoriteId;
+    }
+    return null;
+  };
+
+  const favoriteId: string | null = await getFavoriteId(landmarkId);
+  // console.log("favoriteId", landmarkId);
 
   return <FavoriteToggleForm favoriteId={favoriteId} landmarkId={landmarkId} />;
 };

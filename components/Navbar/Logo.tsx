@@ -5,12 +5,14 @@ import LogoIcon from "../icon/LogoIcon";
 const Logo = () => {
   return (
     <>
-      <Button size="lg" variant="ghost" asChild>
-        <Link href="/">
-        <LogoIcon />
-          <h1 className="text-xl">NYS Camping</h1>
-        </Link>
-      </Button>
+      <div className="z-50">
+        <Button size="lg" variant="ghost" asChild>
+          <Link href="/">
+            <LogoIcon />
+            <h1 className="text-xl">NYS Camping</h1>
+          </Link>
+        </Button>
+      </div>
     </>
   );
 };

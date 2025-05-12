@@ -3,12 +3,13 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Provider from "./Provider";
 import { ClerkProvider } from "@clerk/nextjs";
-import { IBM_Plex_Sans_Thai } from 'next/font/google'
+import { IBM_Plex_Sans_Thai } from "next/font/google";
+import Background from "@/components/home/Background";
 
 const ibm_plex_sans_thai = IBM_Plex_Sans_Thai({
-  weight: '400',
-  subsets: ['latin', 'thai']
-})
+  weight: "400",
+  subsets: ["latin", "thai"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,18 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-
-       <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${ibm_plex_sans_thai.className} antialiased`}
-      >
-        <Provider>
-          <Navbar />
-          <main className="container">{children}</main>
-        </Provider>
-      </body>
-    </html>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${ibm_plex_sans_thai.className} antialiased`}>
+          <Provider>
+            <Background />
+            <Navbar />
+            <main className="container">{children}</main>
+          </Provider>
+        </body>
+      </html>
     </ClerkProvider>
-   
   );
 }

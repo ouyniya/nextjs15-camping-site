@@ -17,44 +17,46 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 const DropdownList = () => {
   return (
     <>
-      <DropdownMenu>
-        <DropdownMenuTrigger className="flex gap-2" asChild>
-          <Button variant="outline">
-            <AlignLeft />
-            <UserIcon />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
+      <div className="z-50">
+        <DropdownMenu>
+          <DropdownMenuTrigger className="flex gap-2" asChild>
+            <Button variant="outline">
+              <AlignLeft />
+              <UserIcon />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
 
-          {/* if signed in show menu */}
-          <SignedIn>
-            {links.map((el, index) => (
-              <DropdownMenuItem key={index}>
-                <Link href={el.href}>{el.label}</Link>
+            {/* if signed in show menu */}
+            <SignedIn>
+              {links.map((el, index) => (
+                <DropdownMenuItem key={index}>
+                  <Link href={el.href}>{el.label}</Link>
+                </DropdownMenuItem>
+              ))}
+              <DropdownMenuItem>
+                <SignOutLink />
               </DropdownMenuItem>
-            ))}
-            <DropdownMenuItem>
-              <SignOutLink />
-            </DropdownMenuItem>
-          </SignedIn>
+            </SignedIn>
 
-          {/* if logout  */}
-          <SignedOut>
-            {/* sign up btn */}
-            <DropdownMenuItem>
-              {/* <SignUpButton mode="modal">Register</SignUpButton> */}
-              <SignUpButton>Register</SignUpButton>
-            </DropdownMenuItem>
+            {/* if logout  */}
+            <SignedOut>
+              {/* sign up btn */}
+              <DropdownMenuItem>
+                {/* <SignUpButton mode="modal">Register</SignUpButton> */}
+                <SignUpButton>Register</SignUpButton>
+              </DropdownMenuItem>
 
-            {/* sign in btn */}
-            <DropdownMenuItem>
-              <SignInButton>Login</SignInButton>
-            </DropdownMenuItem>
-          </SignedOut>
-        </DropdownMenuContent>
-      </DropdownMenu>
+              {/* sign in btn */}
+              <DropdownMenuItem>
+                <SignInButton>Login</SignInButton>
+              </DropdownMenuItem>
+            </SignedOut>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </>
   );
 };

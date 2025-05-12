@@ -1,33 +1,34 @@
-import { categories } from "@/utils/category";
-import Link from "next/link";
+'use client';
 
-const CategoryList = ({
-  search,
-  category,
-}: {
-  search?: string;
-  category?: string;
-}) => {
-  const searchTerm = search ? `&search=${search}` : "";
+import { useSearchParams } from 'next/navigation';
+import { categories } from '@/utils/category';
+import Link from 'next/link';
+
+const CategoryList = () => {
+  const searchParams = useSearchParams();
+  const category = searchParams.get('category');
+  const search = searchParams.get('search');
+  const searchTerm = search ? `&search=${search}` : '';
+
   return (
-    <div className="mt-4">
-      <div className="flex gap-2 justify-evenly">
+    <div className="z-50 rounded-2xl px-3">
+      <div className="flex flex-row md:flex-col gap-4 justify-evenly">
         {categories.map((item) => {
           const isActive = item.label === category;
-          console.log(category)
+
           return (
             <Link
               key={item.label}
-              href={`/?category=${item.label}${searchTerm}`}
+              href={`/search?category=${item.label}${searchTerm}`}
             >
               <article
-                className={`flex flex-col p-3 gap-2 items-center
-                    hover:text-green-600 hover:-translate-y-0.5 transition-all duration-300 
-                ${isActive ? "text-green-600" : ""}
+                className={`z-50 flex flex-col p-3 gap-2 items-center
+                  hover:text-green-600 hover:-translate-y-0.5 transition-all duration-300 
+                  ${isActive ? 'text-green-600' : ''}
                 `}
               >
-                <item.icon />
-                <p>{item.label}</p>
+                <item.icon className="z-50" />
+                <p className="z-50">{item.label}</p>
               </article>
             </Link>
           );
@@ -36,4 +37,5 @@ const CategoryList = ({
     </div>
   );
 };
+
 export default CategoryList;
