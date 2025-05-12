@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import RotatingText from "./Hero";
 import About from "./About";
 import CallToAction from "./CallToAction";
-
+import More from "./More";
 
 const LandmarkContainer = async () => {
   const landmarks: landmarkCardProps[] = await fetchLandmarks({});
@@ -25,7 +25,6 @@ const LandmarkContainer = async () => {
 
   return (
     <div>
-
       {/* Hero */}
       <section className="w-full flex flex-col items-center justify-center min-h-[350px]">
         <div className="absolute inset-0 bg-opacity-50"></div>
@@ -91,6 +90,9 @@ const LandmarkContainer = async () => {
 
       {/* About */}
       <About />
+
+      {/* about us more */}
+      <More />
 
       {/* Call to Action */}
       <CallToAction />

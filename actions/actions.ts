@@ -273,3 +273,11 @@ export const fetchLandmarkDetail = async ({ id }: { id: string }) => {
     },
   });
 };
+
+export const fetchLandmarkFromUserId = async ({ id }: { id: string }) => {
+  return db.landmark.findMany({
+    where: {
+      profileId: id,
+    },
+  });
+};
