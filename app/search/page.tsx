@@ -8,11 +8,11 @@ import { landmarkCardProps } from "@/utils/types";
 import Link from "next/link";
 
 type Props = {
-  searchParams: {
+  searchParams: Promise<{
     search: string;
     category: string;
     page?: string;
-  };
+  }>;
 };
 
 const SearchPage = async ({ searchParams }: Props) => {
