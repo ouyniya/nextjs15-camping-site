@@ -7,7 +7,13 @@ import ImageContainer from "@/components/landmark/ImageContainer";
 import ShareBtn from "@/components/landmark/ShareBtn";
 import { redirect } from "next/navigation";
 
-const LandmarkDetail = async ({ params }: { params: { id: string } }) => {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+const LandmarkDetail = async ({ params }: PageProps) => {
   const { id } = params;
   const landmark = await fetchLandmarkDetail({ id });
 
