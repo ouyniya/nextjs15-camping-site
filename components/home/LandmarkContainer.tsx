@@ -69,12 +69,12 @@ const LandmarkContainer = async () => {
 
       {/* Landmark */}
       <Hero landmarks={landmarksHero} />
-
+      
       {/* WhyUs /> */}
       <div className="mt-16 md:mt-32">
         <div className="mx-auto max-w-3xl md:text-center py-10 pb-5">
           <h2 className="flex gap-4 justify-center items-center font-display font-semibold text-3xl tracking-tight sm:text-4xl">
-            What You’ll 
+            What You’ll
             <TrueFocus sentence="Find Here" manualMode={false} />
           </h2>
           <p className="mt-4 text-lg text-center tracking-tight text-slate-700 dark:text-gray-300">
@@ -84,7 +84,6 @@ const LandmarkContainer = async () => {
         </div>
         <WhyUs />
       </div>
-
       {/* <CategoryList searchParams={searchParams} /> */}
       <div className="mt-16 md:mt-32">
         <div className="mx-auto max-w-3xl md:text-center py-10 pb-5">
@@ -103,16 +102,12 @@ const LandmarkContainer = async () => {
           // "test"
         )}
       </div>
-
       {/* About */}
       <About />
-
       {/* about us more */}
       <More />
-
       {/* Call to Action */}
       <CallToAction />
-
       {/* Footer */}
       <Footer />
     </div>
