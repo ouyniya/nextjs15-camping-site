@@ -7,11 +7,11 @@ import ImageContainer from "@/components/landmark/ImageContainer";
 import ShareBtn from "@/components/landmark/ShareBtn";
 import { redirect } from "next/navigation";
 
-const LandmarkDetail = async ({
+export default async function LandmarkDetail({
   params,
 }: {
   params: { id: string };
-}) => {
+}) {
   const { id } = params;
   const landmark = await fetchLandmarkDetail({ id });
 
@@ -45,4 +45,4 @@ const LandmarkDetail = async ({
     </section>
   );
 };
-export default LandmarkDetail;
+
