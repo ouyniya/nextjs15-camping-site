@@ -1,13 +1,12 @@
 import { SignUpButton } from "@clerk/nextjs";
 import { MoveUpRightIcon } from "lucide-react";
-import Link from "next/link";
 
 function CallToAction() {
   return (
     <div
       className="mt-20 gap-10 justify-center items-center w-full 
     bg-gradient-to-br from-primary to-emerald-700 text-white
-    px-15 py-12 grid grid-cols-1 lg:grid-cols-3 rounded-2xl"
+    px-7 md:px-15 py-12 grid grid-cols-1 lg:grid-cols-3 rounded-2xl"
     >
       <div className="col-span-2 flex flex-col gap-2">
         <h1 className="text-3xl md:text-4xl font-bold">
@@ -20,7 +19,7 @@ function CallToAction() {
       </div>
 
       <div className="col-span-1 flex justify-center items-center">
-        <div className="px-10 py-3 font-bold text-xl lg:text-2xl rounded-xl border-2 border-emerald-500 flex gap-2 justify-center items-center w-full lg:w-auto hover:gap-3 hover:scale-105 duration-300 hover:cursor-pointer hover:shadow-emerald-600/20 hover:shadow-xl">
+        <div className="md:px-10 py-3 font-bold text-xl lg:text-2xl rounded-xl border-2 border-emerald-500 flex gap-2 justify-center items-center w-full lg:w-auto hover:gap-3 hover:scale-105 duration-300 hover:cursor-pointer hover:shadow-emerald-600/20 hover:shadow-xl">
           <span>
             <SignUpButton>Join Us</SignUpButton>
           </span>

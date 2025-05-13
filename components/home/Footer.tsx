@@ -40,7 +40,7 @@ function Footer() {
                   <Link href={`/#about`}>About</Link>
                 </li>
                 <li>
-                  <Link href={`/#contact`}>Contact us</Link>
+                  <Link href={`/contact`}>Contact us</Link>
                 </li>
               </ul>
             </div>
@@ -49,17 +49,17 @@ function Footer() {
               <h4 className="text-lg  font-medium mb-7">Category</h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a href="#" className="">
+                  <a href={`/search?category=Camping`} className="">
                     Camping
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a href="#" className=" ">
+                  <a href={`/search?category=moutain`} className=" ">
                     Mountain
                   </a>
                 </li>
                 <li>
-                  <a href="#" className=" ">
+                  <a href={`/search?category=Food`} className=" ">
                     Food
                   </a>
                 </li>
@@ -70,17 +70,17 @@ function Footer() {
               <h4 className="text-lg  font-medium mb-7">Accommodation</h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a href="#" className="">
+                  <a href={`/search?category=hotel`} className="">
                     Hotel
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a href="#" className=" ">
+                  <a href={`/search?category=house`} className=" ">
                     House
                   </a>
                 </li>
                 <li>
-                  <a href="#" className=" ">
+                  <a href={`/search?category=hostel`} className=" ">
                     Hostel
                   </a>
                 </li>
@@ -91,17 +91,17 @@ function Footer() {
               <h4 className="text-lg  font-medium mb-7">Support</h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a href="#" className="">
+                  <a href="/contact" className="">
                     Support
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a href="#" className=" ">
+                  <a href="/license" className=" ">
                     License
                   </a>
                 </li>
                 <li>
-                  <a href="#" className=" ">
+                  <a href="/term" className=" ">
                     Terms & Conditions
                   </a>
                 </li>

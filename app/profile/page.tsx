@@ -82,52 +82,56 @@ const ProfilePage = async () => {
             <p className="mt-6"></p>
             <p className="mb-3 font-semibold">📸 My Favorite Travel Memory</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group">
-                <Link href={posts ? `/landmark/${posts[0]?.id}` : "/"}>
-                  <Image
-                    src={posts ? posts[0]?.image : ""}
-                    alt="Nature"
-                    className="w-full h-full object-cover"
-                    width={500}
-                    height={500}
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-xl font-bold text-white">
-                        {posts ? posts[0].name : null}
-                      </h3>
-                      <p className="text-white">
-                        {posts ? posts[0].description : null}
-                      </p>
+            {posts?.length === 0 ? (
+              "No posts"
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group">
+                  <Link href={posts ? `/landmark/${posts[0]?.id}` : "/"}>
+                    <Image
+                      src={posts ? posts[0]?.image : ""}
+                      alt="Nature"
+                      className="w-full h-full object-cover"
+                      width={500}
+                      height={500}
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-xl font-bold text-white">
+                          {posts ? posts[0].name : null}
+                        </h3>
+                        <p className="text-white">
+                          {posts ? posts[0].description : null}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                {posts?.splice(1, 8)?.map((item, index) => (
+                  <div key={index}>
+                    <div className="relative overflow-hidden rounded-2xl shadow-lg group w-full h-full">
+                      <Link href={`/landmark/${item?.id}`}>
+                        <Image
+                          src={item.image}
+                          alt="Nature"
+                          className="w-full h-full object-cover"
+                          width={500}
+                          height={500}
+                        />
+                        <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
+                          <div className="absolute bottom-0 left-0 right-0 p-4">
+                            <h4 className="text-sm font-bold text-white">
+                              {item.name}
+                            </h4>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                ))}
               </div>
-
-              {posts?.splice(1, 8)?.map((item, index) => (
-                <div key={index}>
-                  <div className="relative overflow-hidden rounded-2xl shadow-lg group w-full h-full">
-                    <Link href={`/landmark/${item?.id}`}>
-                      <Image
-                        src={item.image}
-                        alt="Nature"
-                        className="w-full h-full object-cover"
-                        width={500}
-                        height={500}
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-60 transition-opacity duration-300">
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <h4 className="text-sm font-bold text-white">
-                            {item.name}
-                          </h4>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
+            )}
 
             <div className="mt-6">
               <h2 className="text-lg font-semibold mb-3">Contact</h2>

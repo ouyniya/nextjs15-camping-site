@@ -28,7 +28,7 @@ const Navbar = () => {
                 Search
               </a>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="hover:text-primary duration-300"
               >
                 Contact Us

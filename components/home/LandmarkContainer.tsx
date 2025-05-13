@@ -77,7 +77,7 @@ const LandmarkContainer = async () => {
             What You’ll 
             <TrueFocus sentence="Find Here" manualMode={false} />
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700 dark:text-gray-300">
+          <p className="mt-4 text-lg text-center tracking-tight text-slate-700 dark:text-gray-300">
             We believe every journey has a story, and every traveler has wisdom
             worth sharing.
           </p>

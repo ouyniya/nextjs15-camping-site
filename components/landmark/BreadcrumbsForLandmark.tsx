@@ -23,7 +23,7 @@ const BreadcrumbsForLandmark = ({
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href={`/?category=${category}`}>
+            <BreadcrumbLink href={`/search?category=${category}`}>
               {category}
             </BreadcrumbLink>
           </BreadcrumbItem>
