@@ -9,10 +9,8 @@ import { redirect } from "next/navigation";
 
 export default async function LandmarkDetail({
   params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = params;
+}: {params: Promise<{ id: string }>}) {
+  const { id } = await params;
   const landmark = await fetchLandmarkDetail({ id });
 
   if (!landmark) {
